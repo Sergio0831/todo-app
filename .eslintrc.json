@@ -1,0 +1,22 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": ["airbnb-base"],
+	"parserOptions": {
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"rules": {
+		"semi": ["warn", "always"],
+		"quotes": ["warn", "single"],
+		"operator-linebreak": ["warn", "none"],
+		"no-unused-vars": "warn",
+		"linebreak-style": ["warn", "windows"],
+		"indent": ["warn", "tab"],
+		"no-tabs": ["warn", { "allowIndentationTabs": true }],
+		"no-console": "off",
+		"no-multiple-empty-lines": ["warn", { "max": 2, "maxEOF": 0 }]
+	}
+}

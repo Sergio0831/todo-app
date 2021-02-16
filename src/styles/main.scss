@@ -5,14 +5,250 @@
 	font-family: 'Josefin Sans', sans-serif;
 }
 
-//=== / Mixins ===
+@mixin box-shadow {
+	box-shadow: 0rem 2.188rem 3.125rem -0.938rem rgba(194, 195, 214, 0.5);
+}
+
+@mixin border-radius {
+	border-radius: 0.313rem;
+}
 
 //=== Variables ===
 $fw-regular: 400;
 $fw-bold: 700;
 
+// === Colors ===
+
+// Primary
+$bright-blue: #3a7bfd;
+// $check-background: linear-gradient #57ddff to #c058f3;
+$check-background: linear-gradient(#55ddff, #c058f3);
+$light: #fff;
+
+// Light Theme
+$very-light-gray: #fafafa;
+$very-light-grayish-blue: #e4e5f1;
+$light-grayish-blue: #cacde8;
+
+// Dark Theme
+$very-dark-blue: #161722;
+$very-dark-desaturated-blue: #25273c;
+$dark-grayish-blue: #9495a5;
+$very-dark-grayish-blue: #34354b;
+
+// === / Colors ===
 //=== / Variables ===
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
 
 body {
 	@include josefin;
+	font-size: 1.125rem;
+	height: 100vh;
+	font-weight: $fw-regular;
+}
+
+li {
+	list-style: none;
+}
+
+.container {
+	max-width: 90rem;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	position: relative;
+	background: $very-light-gray;
+}
+
+.btn {
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	outline: none;
+	transition: color 0.3s;
+	&:hover {
+		color: $very-dark-grayish-blue;
+	}
+}
+
+.text {
+	&--large {
+		color: $very-dark-grayish-blue;
+	}
+	&--small {
+		font-size: 0.875em;
+		line-height: 0.875rem;
+		letter-spacing: -0.012rem;
+		color: $dark-grayish-blue;
+
+		&-bold {
+			font-weight: $fw-bold;
+			// color: $dark-grayish-blue;
+			color: $dark-grayish-blue;
+		}
+	}
+}
+
+header {
+	background: url(../images/bg-desktop-light.jpg) no-repeat center;
+	background-size: cover;
+	height: 18.75rem;
+}
+
+.todo {
+	max-width: 33.75rem;
+	width: 100%;
+	position: absolute;
+	top: 4.375rem;
+	left: 50%;
+	transform: translateX(-50%);
+
+	&__header {
+		display: flex;
+		margin-bottom: 3rem;
+		justify-content: space-between;
+		align-items: center;
+
+		h1 {
+			margin: 0;
+			font-weight: $fw-bold;
+			font-size: 2.5rem;
+			line-height: 2.5rem;
+			letter-spacing: 0.938rem;
+			color: #ffffff;
+			text-transform: uppercase;
+		}
+
+		.switcher {
+			background: url(../images/icon-moon.svg) no-repeat;
+			width: 1.563rem;
+			height: 1.875rem;
+			cursor: pointer;
+		}
+	}
+
+	input[type='text'] {
+		width: 33.75rem;
+		padding: 1.25rem 4.5rem;
+		background-image: url(../images/circle.svg);
+		background-repeat: no-repeat;
+		background-position: 1.563rem 1rem;
+		@include box-shadow;
+		@include border-radius;
+		border: none;
+		color: $very-dark-grayish-blue;
+		outline: none;
+		caret-color: $bright-blue;
+
+		&::placeholder {
+			letter-spacing: -0.016rem;
+			color: $dark-grayish-blue;
+		}
+	}
+
+	&__list-item {
+		display: flex;
+		padding: 1rem 1.5rem;
+		align-items: center;
+		justify-content: space-between;
+		cursor: pointer;
+		border-top: 0.063rem solid $very-light-grayish-blue;
+
+		&:first-child {
+			border-top: none;
+		}
+
+		input[type='checkbox'] {
+			position: absolute;
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			cursor: pointer;
+		}
+
+		label {
+			padding-left: 3rem;
+			cursor: pointer;
+			user-select: none;
+			line-height: 1.5;
+		}
+
+		.custom-checkbox {
+			position: absolute;
+			width: 1.5rem;
+			height: 1.5rem;
+			margin-left: -3rem;
+			border: 0.063rem solid $very-light-grayish-blue;
+			border-radius: 50%;
+			background: $light;
+		}
+
+		input[type='checkbox'] + .custom-checkbox {
+			transition: background 0.3s;
+		}
+
+		input[type='checkbox']:checked + .custom-checkbox {
+			background-image: url(../images/checked.svg);
+			background-position: center;
+			border: none;
+		}
+
+		input[type='checkbox']:hover + .custom-checkbox {
+			border-color: linear-gradient(#55ddff, #c058f3);
+		}
+
+		input[type='checkbox']:not(:checked):hover + .custom-checkbox {
+			background-image: url(../images/hover-checkbox.svg);
+			border: none;
+		}
+
+		.completed {
+			text-decoration-line: line-through;
+			color: $light-grayish-blue;
+		}
+
+		.delete {
+			opacity: 0;
+			visibility: hidden;
+			cursor: pointer;
+			transition: all 0.3s;
+		}
+
+		&:hover {
+			.delete {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+
+	.todo__action {
+		margin-top: 1.5rem;
+		background: $light;
+		@include box-shadow;
+		@include border-radius;
+		width: 100%;
+
+		&-footer {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 1rem 1.5rem;
+			border-top: 0.063rem solid $very-light-grayish-blue;
+		}
+		.filter-list {
+			display: flex;
+			column-gap: 1.125rem;
+		}
+	}
+}
+
+.footer-text {
+	text-align: center;
+	margin-top: 3.125rem;
 }

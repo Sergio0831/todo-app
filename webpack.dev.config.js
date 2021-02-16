@@ -1,5 +1,9 @@
+'use strict';
+
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
 	entry: './src/js/index.js',
@@ -48,6 +52,10 @@ module.exports = {
 	plugins: [
 		new MiniCssExtractPlugin({
 			filename: 'style.css',
+		}),
+		new StylelintPlugin({}),
+		new ESLintPlugin({
+			emitError: true,
 		}),
 	],
 };
