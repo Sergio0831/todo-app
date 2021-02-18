@@ -1,43 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
-
-//=== Mixins ===
-@mixin josefin {
-	font-family: 'Josefin Sans', sans-serif;
-}
-
-@mixin box-shadow {
-	box-shadow: 0rem 2.188rem 3.125rem -0.938rem rgba(194, 195, 214, 0.5);
-}
-
-@mixin border-radius {
-	border-radius: 0.313rem;
-}
-
-//=== Variables ===
-$fw-regular: 400;
-$fw-bold: 700;
-
-// === Colors ===
-
-// Primary
-$bright-blue: #3a7bfd;
-// $check-background: linear-gradient #57ddff to #c058f3;
-$check-background: linear-gradient(#55ddff, #c058f3);
-$light: #fff;
-
-// Light Theme
-$very-light-gray: #fafafa;
-$very-light-grayish-blue: #e4e5f1;
-$light-grayish-blue: #cacde8;
-
-// Dark Theme
-$very-dark-blue: #161722;
-$very-dark-desaturated-blue: #25273c;
-$dark-grayish-blue: #9495a5;
-$very-dark-grayish-blue: #34354b;
-
-// === / Colors ===
-//=== / Variables ===
+@import './animation';
+@import './dark-theme';
 
 * {
 	box-sizing: border-box;
@@ -47,6 +10,8 @@ $very-dark-grayish-blue: #34354b;
 
 body {
 	@include josefin;
+
+	position: relative;
 	font-size: 1.125rem;
 	height: 100vh;
 	font-weight: $fw-regular;
@@ -54,6 +19,23 @@ body {
 
 li {
 	list-style: none;
+}
+
+.alert-message {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0.7rem;
+	left: 50%;
+	transform: translateX(-50%) translateY(-150%) scale(0.2);
+	opacity: 0;
+	background: #c058f3;
+	color: $light;
+	width: 20rem;
+	height: 3rem;
+	border-radius: 0.313rem;
+	transition: all 0.3s;
 }
 
 .container {
@@ -71,6 +53,7 @@ li {
 	border: none;
 	outline: none;
 	transition: color 0.3s;
+
 	&:hover {
 		color: $very-dark-grayish-blue;
 	}
@@ -80,6 +63,7 @@ li {
 	&--large {
 		color: $very-dark-grayish-blue;
 	}
+
 	&--small {
 		font-size: 0.875em;
 		line-height: 0.875rem;
@@ -120,7 +104,7 @@ header {
 			font-size: 2.5rem;
 			line-height: 2.5rem;
 			letter-spacing: 0.938rem;
-			color: #ffffff;
+			color: $light;
 			text-transform: uppercase;
 		}
 
@@ -138,8 +122,10 @@ header {
 		background-image: url(../images/circle.svg);
 		background-repeat: no-repeat;
 		background-position: 1.563rem 1rem;
+
 		@include box-shadow;
 		@include border-radius;
+
 		border: none;
 		color: $very-dark-grayish-blue;
 		outline: none;
@@ -165,9 +151,13 @@ header {
 
 		input[type='checkbox'] {
 			position: absolute;
-			appearance: none;
-			-webkit-appearance: none;
-			-moz-appearance: none;
+			// appearance: none;
+			// -webkit-appearance: none;
+			// -moz-appearance: none;
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+			clip: rect(0 0 0 0);
 			cursor: pointer;
 		}
 
@@ -189,17 +179,13 @@ header {
 		}
 
 		input[type='checkbox'] + .custom-checkbox {
-			transition: background 0.3s;
+			transition: border-color 0.3s;
 		}
 
 		input[type='checkbox']:checked + .custom-checkbox {
 			background-image: url(../images/checked.svg);
 			background-position: center;
 			border: none;
-		}
-
-		input[type='checkbox']:hover + .custom-checkbox {
-			border-color: linear-gradient(#55ddff, #c058f3);
 		}
 
 		input[type='checkbox']:not(:checked):hover + .custom-checkbox {
@@ -230,8 +216,10 @@ header {
 	.todo__action {
 		margin-top: 1.5rem;
 		background: $light;
+
 		@include box-shadow;
 		@include border-radius;
+
 		width: 100%;
 
 		&-footer {
@@ -241,9 +229,14 @@ header {
 			padding: 1rem 1.5rem;
 			border-top: 0.063rem solid $very-light-grayish-blue;
 		}
+
 		.filter-list {
 			display: flex;
 			column-gap: 1.125rem;
+
+			.active {
+				color: $bright-blue;
+			}
 		}
 	}
 }

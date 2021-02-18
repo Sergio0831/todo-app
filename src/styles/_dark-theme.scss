@@ -1,0 +1,85 @@
+@import './setup';
+
+.dark-theme {
+	.container {
+		background: $very-dark-blue;
+	}
+
+	header {
+		background: url(../images/bg-desktop-dark.jpg) no-repeat center;
+	}
+
+	.switcher {
+		background: url(../images/icon-sun.svg) no-repeat !important;
+	}
+
+	input[type='text'] {
+		background-color: $very-dark-desaturated-blue;
+		color: $light-grayish-blue !important;
+		background-image: url(../images/darktheme-circle.svg) !important;
+		box-shadow: 0 35px 50px -15px rgba(0, 0, 0, 0.5) !important;
+	}
+
+	input[type='text']::placeholder {
+		color: #767992 !important;
+	}
+
+	.btn:hover {
+		color: $very-light-grayish-blue;
+	}
+
+	.text {
+		&--large {
+			color: $light-grayish-blue;
+		}
+
+		&--small {
+			color: #5b5e7e;
+
+			&-bold {
+				color: #5b5e7e;
+			}
+		}
+	}
+
+	.todo__list-item {
+		border-top: 0.063rem solid #393a4b !important;
+	}
+
+	.custom-checkbox {
+		border: 0.063rem solid #393a4b !important;
+		background: transparent !important;
+	}
+
+	input[type='checkbox']:checked + .custom-checkbox {
+		background-image: url(../images/checked.svg) !important;
+		border: none !important;
+	}
+
+	input[type='checkbox']:not(:checked):hover + .custom-checkbox {
+		background-image: url(../images/darktheme-hover-checkbox.svg) !important;
+		border: none !important;
+	}
+
+	.todo__action {
+		background: #25273d !important;
+		box-shadow: 0 35px 50px -15px rgba(0, 0, 0, 0.5) !important;
+
+		&-footer {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 1rem 1.5rem;
+			border-top: 0.063rem solid #393a4b !important;
+		}
+
+		.filter-list {
+			display: flex;
+			column-gap: 1.125rem;
+
+			.active {
+				color: $bright-blue;
+			}
+		}
+	}
+}

@@ -11,8 +11,18 @@
 	"rules": {
 		"semi": ["warn", "always"],
 		"quotes": ["warn", "single"],
-		"operator-linebreak": ["warn", "none"],
+		"operator-linebreak": [
+			"error",
+			"after",
+			{ "overrides": { "?": "ignore", ":": "ignore" } }
+		],
+		"comma-dangle": "warn",
+		"no-unused-expressions": [
+			"warn",
+			{ "allowShortCircuit": true, "allowTernary": true }
+		],
 		"no-unused-vars": "warn",
+		"no-duplicate-imports": ["warn", { "includeExports": true }],
 		"linebreak-style": ["warn", "windows"],
 		"indent": ["warn", "tab"],
 		"no-tabs": ["warn", { "allowIndentationTabs": true }],

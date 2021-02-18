@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Javascript Todo App" />
 		<link
 			rel="icon"
 			type="image/png"
@@ -13,20 +14,30 @@
 	</head>
 	<body>
 		<div class="container">
-			<header></header>
+			<header>
+				<div class="alert-message">
+					<p class="alert-message__text">Add Todo</p>
+				</div>
+			</header>
 			<div class="todo">
 				<div class="todo__header">
 					<h1>todo</h1>
 					<div class="switcher"></div>
 				</div>
-				<form class="todo__form">
-					<input type="text" placeholder="Create a new todo…" autofocus />
+				<form class="todo__form" autocomplete="off">
+					<label for="add">
+						<input
+							type="text"
+							id="add"
+							placeholder="Create a new todo…"
+							autofocus
+					/></label>
 				</form>
 				<div class="todo__action">
 					<ul class="todo__list">
-						<li class="todo__list-item">
-							<label class="text--large completed"
-								><input type="checkbox" name="complete" checked />
+						<!-- <li class="todo__list-item">
+							<label class="text--large"
+								><input type="checkbox" id="checkbox" name="complete" />
 								<span class="custom-checkbox"></span>
 								Jog around the park 3x
 							</label>
@@ -45,7 +56,7 @@
 						</li>
 						<li class="todo__list-item">
 							<label class="text--large"
-								><input type="checkbox" name="complete" />
+								><input type="checkbox" id="checkbox" name="complete" />
 								<span class="custom-checkbox"></span>
 								Complete Todo App onFrontend Mentor</label
 							>
@@ -64,7 +75,7 @@
 						</li>
 						<li class="todo__list-item">
 							<label class="text--large"
-								><input type="checkbox" name="complete" />
+								><input type="checkbox" id="checkbox" name="complete" />
 								<span class="custom-checkbox"></span>
 								10 minutes meditation</label
 							>
@@ -80,16 +91,16 @@
 									d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"
 								/>
 							</svg>
-						</li>
+						</li> -->
 					</ul>
 					<div class="todo__action-footer">
-						<p class="text--small"><span class="qty">5</span> items left</p>
+						<p class="text--small"><span class="qty">5 items</span> left</p>
 						<ul class="filter-list">
-							<li><button class="btn text--small-bold">All</button></li>
+							<li><button class="btn text--small-bold active">All</button></li>
 							<li><button class="btn text--small-bold">Active</button></li>
 							<li><button class="btn text--small-bold">Completed</button></li>
 						</ul>
-						<button class="btn text--small">Clear Completed</button>
+						<button class="btn btn--clear text--small">Clear Completed</button>
 					</div>
 				</div>
 				<p class="text--small footer-text">Drag and drop to reorder list</p>
