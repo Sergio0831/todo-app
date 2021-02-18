@@ -23,6 +23,7 @@
 		],
 		"no-unused-vars": "warn",
 		"no-duplicate-imports": ["warn", { "includeExports": true }],
+		"no-param-reassign": ["warn", { "props": false }],
 		"linebreak-style": ["warn", "windows"],
 		"indent": ["warn", "tab"],
 		"no-tabs": ["warn", { "allowIndentationTabs": true }],

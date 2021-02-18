@@ -1,18 +1,38 @@
-export function setTodosToLocalStorage(todos) {
-	localStorage.setItem('cartItems', JSON.stringify(todos));
+function setTodosToLocalStorage(todo) {
+	let todos;
+	if (localStorage.getItem('todos') === null) {
+		todos = [];
+	} else {
+		todos = JSON.parse(localStorage.getItem('todos'));
+	}
+
+	if (!(todos instanceof Array)) {
+		todos = [todos];
+	}
+
+	todos.push(todo);
+
+	localStorage.setItem('todos', JSON.stringify(todos));
 }
 
-export function getTodosFromLocalStorage() {
+function getTodosFromLocalStorage() {
 	const todos = localStorage.getItem('todos')
 		? JSON.parse(localStorage.getItem('todos'))
 		: [];
 	return todos;
 }
 
-export function removeTodoFromLocalStorage() {
+function removeTodoFromLocalStorage() {
 	localStorage.removeItem('todos');
 }
 
-export function clearLocalStorage() {
+function clearLocalStorage() {
 	localStorage.clear();
 }
+
+export {
+	setTodosToLocalStorage,
+	getTodosFromLocalStorage,
+	removeTodoFromLocalStorage,
+	clearLocalStorage,
+};

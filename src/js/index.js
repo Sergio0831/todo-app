@@ -1,6 +1,5 @@
 import 'normalize.css';
 import '../styles/main.scss';
-import { setTodosToLocalStorage } from './localStorage';
 import todoComponent from './todoComponent';
 import { showAlert, hideAlert } from './alertMessage';
 
@@ -43,8 +42,6 @@ function addTodo(e) {
 
 		input.value = '';
 
-		setTodosToLocalStorage(input.value);
-
 		itemsLeft();
 	}
 }
@@ -81,6 +78,27 @@ function filterTodos(e) {
 		filterBtn.classList.remove('active');
 	});
 	e.target.classList.add('active');
+
+	const text = e.target.textContent.toLowerCase();
+	Array.from(todosList.children).forEach((todo) => {
+		const checkedTodo = todo.firstElementChild.firstElementChild.checked;
+
+		if (text === 'all') {
+			todo.style.display = 'flex';
+		}
+
+		if (text === 'active') {
+			checkedTodo
+				? (todo.style.display = 'none')
+				: (todo.style.display = 'flex');
+		}
+
+		if (text === 'completed') {
+			!checkedTodo
+				? (todo.style.display = 'none')
+				: (todo.style.display = 'flex');
+		}
+	});
 }
 
 // *** Events ***
