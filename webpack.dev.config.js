@@ -7,13 +7,13 @@ const StylelintPlugin = require('stylelint-webpack-plugin');
 module.exports = {
 	entry: './src/js/index.js',
 	output: {
-		filename: 'main.js',
-		path: path.resolve(__dirname, './src'),
+		filename: 'bundle.js',
+		path: path.resolve(__dirname, './dist'),
 		publicPath: '',
 	},
 	mode: 'development',
 	devServer: {
-		contentBase: path.join(__dirname, './src'),
+		contentBase: path.join(__dirname, './dist'),
 		index: 'index.html',
 		hot: true,
 	},

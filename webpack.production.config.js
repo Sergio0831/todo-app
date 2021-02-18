@@ -9,7 +9,7 @@ module.exports = {
 	entry: './src/js/index.js',
 	output: {
 		filename: '[name].[contenthash].js',
-		path: path.resolve(__dirname, './dist'),
+		path: path.resolve(process.cwd(), 'dist'),
 		publicPath: '',
 	},
 	mode: 'production',
@@ -75,7 +75,9 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new CleanWebpackPlugin(),
+		new CleanWebpackPlugin({
+			root: __dirname,
+		}),
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
 			template: './src/index.html',
