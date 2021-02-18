@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -75,9 +76,6 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new CleanWebpackPlugin({
-			root: __dirname,
-		}),
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
 			template: './src/index.html',
@@ -85,6 +83,8 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: '[name].[contenthash].css',
 		}),
+		new CssMinimizerPlugin(),
+		new CleanWebpackPlugin(),
 		new CopyWebpackPlugin({
 			patterns: [
 				{

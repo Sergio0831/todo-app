@@ -19,15 +19,15 @@
 		background: url(./images/icon-sun.svg) no-repeat !important;
 	}
 
-	input[type='text'] {
-		background-color: $very-dark-desaturated-blue;
+	#add {
+		background-color: $very-dark-desaturated-blue !important;
 		color: $light-grayish-blue !important;
 		background-image: url(./images/darktheme-circle.svg) !important;
 		box-shadow: 0 35px 50px -15px rgba(0, 0, 0, 0.5) !important;
-	}
 
-	input[type='text']::placeholder {
-		color: #767992 !important;
+		&::placeholder {
+			color: #767992 !important;
+		}
 	}
 
 	.btn:hover {
