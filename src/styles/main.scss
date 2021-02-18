@@ -18,7 +18,7 @@ body {
 	font-weight: $fw-regular;
 
 	@include media {
-		font-size: 0.75rem;
+		font-size: 0.875rem;
 	}
 }
 
@@ -93,7 +93,7 @@ header {
 	height: 18.75rem;
 
 	@include media {
-		background: url(../images/bg-mobile-light.jpg) no-repeat center;
+		background: url(./images/bg-mobile-light.jpg) no-repeat center;
 		background-size: cover;
 		height: 12.5rem;
 	}
@@ -133,7 +133,7 @@ header {
 		}
 
 		.switcher {
-			background: url(../images/icon-moon.svg) no-repeat;
+			background: url(./images/icon-moon.svg) no-repeat;
 			width: 1.563rem;
 			height: 1.875rem;
 			cursor: pointer;
@@ -146,10 +146,10 @@ header {
 		}
 	}
 
-	input[type='text'] {
+	#add {
 		width: 100%;
 		padding: 1.25rem 4.5rem;
-		background-image: url(../images/circle.svg);
+		background-image: url(./images/circle.svg);
 		background-repeat: no-repeat;
 		background-position: 1.563rem 1rem;
 
@@ -213,13 +213,13 @@ header {
 		}
 
 		input[type='checkbox']:checked + .custom-checkbox {
-			background-image: url(../images/checked.svg);
+			background-image: url(./images/checked.svg);
 			background-position: center;
 			border: none;
 		}
 
 		input[type='checkbox']:not(:checked):hover + .custom-checkbox {
-			background-image: url(../images/hover-checkbox.svg);
+			background-image: url(./images/hover-checkbox.svg);
 			border: none;
 		}
 

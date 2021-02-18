@@ -6,23 +6,23 @@
 	}
 
 	header {
-		background: url(../images/bg-desktop-dark.jpg) no-repeat center;
+		background: url(./images/bg-desktop-dark.jpg) no-repeat center;
 
 		@include media {
-			background: url(../images/bg-mobile-dark.jpg) no-repeat center;
+			background: url(./images/bg-mobile-dark.jpg) no-repeat center;
 			background-size: cover;
 			height: 12.5rem;
 		}
 	}
 
 	.switcher {
-		background: url(../images/icon-sun.svg) no-repeat !important;
+		background: url(./images/icon-sun.svg) no-repeat !important;
 	}
 
 	input[type='text'] {
 		background-color: $very-dark-desaturated-blue;
 		color: $light-grayish-blue !important;
-		background-image: url(../images/darktheme-circle.svg) !important;
+		background-image: url(./images/darktheme-circle.svg) !important;
 		box-shadow: 0 35px 50px -15px rgba(0, 0, 0, 0.5) !important;
 	}
 
@@ -58,12 +58,12 @@
 	}
 
 	input[type='checkbox']:checked + .custom-checkbox {
-		background-image: url(../images/checked.svg) !important;
+		background-image: url(./images/checked.svg) !important;
 		border: none !important;
 	}
 
 	input[type='checkbox']:not(:checked):hover + .custom-checkbox {
-		background-image: url(../images/darktheme-hover-checkbox.svg) !important;
+		background-image: url(./images/darktheme-hover-checkbox.svg) !important;
 		border: none !important;
 	}
 
