@@ -7,8 +7,18 @@
 	box-shadow: 0 2.188rem 3.125rem -0.938rem rgba(194, 195, 214, 0.5);
 }
 
+@mixin box-shadow-dark-theme {
+	box-shadow: 0 35px 50px -15px rgba(0, 0, 0, 0.5);
+}
+
 @mixin border-radius {
 	border-radius: 0.313rem;
+}
+
+@mixin media {
+	@media (max-width: 550px) {
+		@content;
+	}
 }
 
 //=== Variables ===
