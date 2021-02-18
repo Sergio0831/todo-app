@@ -1,3 +1,5 @@
+'use strict';
+
 import 'normalize.css';
 import '../styles/main.scss';
 import todoComponent from './todoComponent';

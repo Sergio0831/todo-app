@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -10,8 +8,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry: './src/js/index.js',
 	output: {
-		filename: 'main.js',
-		path: path.resolve(__dirname, './main'),
+		filename: '[name].[contenthash].js',
+		path: path.resolve(__dirname, 'dist'),
 		publicPath: '',
 	},
 	mode: 'production',
@@ -56,32 +54,40 @@ module.exports = {
 				],
 			},
 			{
+				test: /\.(jpg|png|svg)$/,
+				use: {
+					loader: 'url-loader',
+					options: {
+						limit: 25000,
+					},
+				},
+			},
+			{
 				test: /\.m?js$/,
 				exclude: /(node_modules|bower_components)/,
 				use: {
 					loader: 'babel-loader',
 					options: {
 						presets: ['@babel/preset-env'],
-						plugins: ['@babel/plugin-transform-runtime'],
 					},
 				},
 			},
 		],
 	},
 	plugins: [
+		new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
 			template: './src/index.html',
 		}),
 		new MiniCssExtractPlugin({
-			filename: 'style.css',
+			filename: '[name].[contenthash].css',
 		}),
-		new CleanWebpackPlugin(),
 		new CopyWebpackPlugin({
 			patterns: [
 				{
 					from: 'src/images',
-					to: path.resolve(__dirname, 'main/images'),
+					to: path.resolve(__dirname, 'dist/images'),
 				},
 			],
 		}),

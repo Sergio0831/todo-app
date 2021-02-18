@@ -3,7 +3,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
 	entry: './src/js/index.js',
@@ -35,6 +34,15 @@ module.exports = {
 				],
 			},
 			{
+				test: /\.(jpg|png|svg)$/,
+				use: {
+					loader: 'url-loader',
+					options: {
+						limit: 25000,
+					},
+				},
+			},
+			{
 				test: /\.css$/,
 				use: ['style-loader', 'css-loader?url=false'],
 			},
@@ -54,8 +62,5 @@ module.exports = {
 			filename: 'style.css',
 		}),
 		new StylelintPlugin({}),
-		new ESLintPlugin({
-			emitError: true,
-		}),
 	],
 };

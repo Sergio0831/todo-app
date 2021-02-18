@@ -11,6 +11,12 @@
 	border-radius: 0.313rem;
 }
 
+@mixin media {
+	@media (max-width: 550px) {
+		@content;
+	}
+}
+
 //=== Variables ===
 $fw-regular: 400;
 $fw-bold: 700;
