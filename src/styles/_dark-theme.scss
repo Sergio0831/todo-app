@@ -7,6 +7,12 @@
 
 	header {
 		background: url(../images/bg-desktop-dark.jpg) no-repeat center;
+
+		@include media {
+			background: url(../images/bg-mobile-dark.jpg) no-repeat center;
+			background-size: cover;
+			height: 12.5rem;
+		}
 	}
 
 	.switcher {
@@ -64,14 +70,11 @@
 	.todo__action {
 		background: #25273d !important;
 		box-shadow: 0 35px 50px -15px rgba(0, 0, 0, 0.5) !important;
+	}
 
-		&-footer {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 1rem 1.5rem;
-			border-top: 0.063rem solid #393a4b !important;
-		}
+	.todo__action-footer--mobile {
+		background: #25273d !important;
+		box-shadow: 0 35px 50px -15px rgba(0, 0, 0, 0.5) !important;
 
 		.filter-list {
 			display: flex;
@@ -80,6 +83,10 @@
 			.active {
 				color: $bright-blue;
 			}
+		}
+
+		@include media {
+			display: flex;
 		}
 	}
 }

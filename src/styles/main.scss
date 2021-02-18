@@ -93,7 +93,7 @@ header {
 	height: 18.75rem;
 
 	@include media {
-		background: url(./images/bg-mobile-light.jpg) no-repeat center;
+		background: url(../images/bg-mobile-light.jpg) no-repeat center;
 		background-size: cover;
 		height: 12.5rem;
 	}
