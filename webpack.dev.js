@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
@@ -7,13 +5,12 @@ const StylelintPlugin = require('stylelint-webpack-plugin');
 module.exports = {
 	entry: './src/js/index.js',
 	output: {
-		filename: 'bundle.js',
-		path: path.resolve(__dirname, './src'),
-		publicPath: '',
+		filename: '[name].[contenthash].js',
+		path: path.resolve(__dirname, 'dist'),
 	},
 	mode: 'development',
 	devServer: {
-		contentBase: path.join(__dirname, './src'),
+		contentBase: path.join(__dirname, './dist'),
 		index: 'index.html',
 		hot: true,
 	},
