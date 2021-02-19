@@ -4,6 +4,7 @@ import 'normalize.css';
 import '../styles/main.scss';
 import todoComponent from './todoComponent';
 import { showAlert, hideAlert } from './alertMessage';
+import Sortable from 'sortablejs';
 
 const body = document.querySelector('body');
 const form = document.querySelector('.todo__form');
@@ -102,6 +103,11 @@ function filterTodos(e) {
 		}
 	});
 }
+
+// *** Drag and Drop ***
+const sortable = new Sortable(todosList, {
+	animation: 350,
+});
 
 // *** Events ***
 switcher.addEventListener('click', changeTheme);
